@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Les Services MMI circle logo</title>
+  <desc id="desc">Deep navy and champagne gold circular MMI monogram logo.</desc>
+  <defs>
+    <radialGradient id="bg" cx="35%" cy="25%" r="75%">
+      <stop offset="0%" stop-color="#132640"/>
+      <stop offset="100%" stop-color="#0D1A2C"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#F0DFA9"/>
+      <stop offset="45%" stop-color="#E2CF9A"/>
+      <stop offset="100%" stop-color="#C7A968"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="16" dy="20" stdDeviation="18" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+
+  <circle cx="512" cy="512" r="438" fill="url(#bg)" stroke="url(#gold)" stroke-width="34" filter="url(#softShadow)"/>
+  <circle cx="512" cy="512" r="366" fill="none" stroke="#E2CF9A" stroke-opacity="0.42" stroke-width="8"/>
+
+  <g opacity="0.16" stroke="#C8D3E2" stroke-width="3">
+    <line x1="120" y1="820" x2="820" y2="120"/>
+    <line x1="188" y1="850" x2="850" y2="188"/>
+    <line x1="258" y1="880" x2="880" y2="258"/>
+  </g>
+
+  <text x="512" y="556"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="240"
+        font-weight="700"
+        letter-spacing="-10"
+        fill="url(#gold)">MMI</text>
+
+  <line x1="382" y1="654" x2="642" y2="654" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/>
+</svg>

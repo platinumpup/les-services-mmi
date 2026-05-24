@@ -1,0 +1,26 @@
+/* Larger on-page MMI logo mark */
+.brand-mark {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--champagne);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(200, 211, 226, 0.12), transparent 38%),
+    linear-gradient(145deg, #0d1a2c, #08111f);
+  color: var(--champagne-soft);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: 0.035em;
+  box-shadow:
+    0 0 0 8px rgba(199, 169, 104, 0.035),
+    0 18px 34px rgba(0, 0, 0, 0.28);
+}
+
+@media (max-width: 620px) {
+  .brand-mark {
+    width: 60px;
+    height: 60px;
+    font-size: 1rem;
+  }
+}

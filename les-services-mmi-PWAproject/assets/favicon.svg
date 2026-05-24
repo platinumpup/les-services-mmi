@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <circle cx="256" cy="256" r="218" fill="#0B5FEA" stroke="#F5C542" stroke-width="34"/>
+  <circle cx="256" cy="256" r="175" fill="none" stroke="#FFE587" stroke-opacity="0.45" stroke-width="6"/>
+  <text x="256" y="287" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="160" font-weight="700"
+        fill="#F5C542">MMI</text>
+</svg>
