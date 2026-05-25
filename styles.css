@@ -843,3 +843,34 @@ input:focus {
 .notify {
   gap: 10px !important;
 }
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid rgba(199, 169, 104, 0.26);
+  border-radius: 999px;
+  background: rgba(199, 169, 104, 0.055);
+}
+
+.language-switch a {
+  min-width: 38px;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: var(--steel-soft);
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.language-switch a:hover,
+.language-switch a.active {
+  background: rgba(199, 169, 104, 0.16);
+  color: var(--champagne-soft);
+}
