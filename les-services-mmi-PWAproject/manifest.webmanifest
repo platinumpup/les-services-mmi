@@ -1,9 +1,9 @@
 {
   "name": "Les Services MMI",
-  "short_name": "Services MMI",
+  "short_name": "MMI",
   "description": "Les Services MMI is under construction.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#070a12",
   "theme_color": "#0b1020",
