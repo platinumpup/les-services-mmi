@@ -285,3 +285,184 @@
     gap: 10px;
   }
 }
+
+
+/* Printable paper ruler. Uses physical CSS millimetres, not screen calibration. */
+.ruler-print-sheet {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: auto;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
+  body > *:not(.ruler-print-sheet) {
+    display: none !important;
+  }
+
+  .ruler-print-sheet {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    background: #fff !important;
+    color: #111 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 10pt !important;
+    line-height: 1.35 !important;
+  }
+
+  .ruler-print-header {
+    max-width: 170mm;
+    margin: 0 0 8mm;
+    padding-bottom: 4mm;
+    border-bottom: 0.3mm solid #111;
+  }
+
+  .ruler-print-header h1 {
+    margin: 0 0 2mm !important;
+    color: #111 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18pt !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .ruler-print-header p,
+  .ruler-print-check p {
+    max-width: 170mm;
+    margin: 0 !important;
+    color: #111 !important;
+  }
+
+  .ruler-print-check {
+    margin-bottom: 9mm;
+  }
+
+  .ruler-print-card {
+    width: 85.6mm !important;
+    height: 54mm !important;
+    display: grid !important;
+    place-items: center !important;
+    margin-bottom: 3mm;
+    border: 0.35mm dashed #111 !important;
+    border-radius: 3mm;
+    color: #111 !important;
+    background: transparent !important;
+    font-size: 9pt !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.4pt !important;
+  }
+
+  .ruler-print-rulers {
+    display: grid !important;
+    grid-template-columns: auto auto;
+    gap: 14mm;
+    align-items: start;
+  }
+
+  .ruler-print-label {
+    margin: 0 0 3mm !important;
+    color: #111 !important;
+    font-size: 9pt !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5pt !important;
+  }
+
+  .ruler-print-horizontal {
+    position: relative !important;
+    width: 150mm !important;
+    height: 24mm !important;
+    border-bottom: 0.45mm solid #111 !important;
+    background: transparent !important;
+  }
+
+  .ruler-print-vertical {
+    position: relative !important;
+    width: 24mm !important;
+    height: 150mm !important;
+    border-left: 0.45mm solid #111 !important;
+    background: transparent !important;
+  }
+
+  .ruler-print-tick-h,
+  .ruler-print-tick-v {
+    position: absolute !important;
+    background: #111 !important;
+  }
+
+  .ruler-print-tick-h {
+    bottom: 0 !important;
+    width: 0.22mm !important;
+  }
+
+  .ruler-print-tick-h.mm {
+    height: 3.5mm !important;
+  }
+
+  .ruler-print-tick-h.half {
+    height: 6mm !important;
+  }
+
+  .ruler-print-tick-h.cm {
+    width: 0.35mm !important;
+    height: 10mm !important;
+  }
+
+  .ruler-print-tick-v {
+    left: 0 !important;
+    height: 0.22mm !important;
+  }
+
+  .ruler-print-tick-v.mm {
+    width: 3.5mm !important;
+  }
+
+  .ruler-print-tick-v.half {
+    width: 6mm !important;
+  }
+
+  .ruler-print-tick-v.cm {
+    height: 0.35mm !important;
+    width: 10mm !important;
+  }
+
+  .ruler-print-number-h,
+  .ruler-print-number-v {
+    position: absolute !important;
+    color: #111 !important;
+    font-size: 7pt !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+  }
+
+  .ruler-print-number-h {
+    bottom: 11.5mm !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .ruler-print-number-v {
+    left: 11.5mm !important;
+    transform: translateY(-50%) !important;
+  }
+}
