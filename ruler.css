@@ -1,0 +1,287 @@
+/* =========================================================
+   PULL-OUT CALIBRATED RULER WIDGET
+   Add ruler.css in <head> and ruler.js before </body>.
+   ========================================================= */
+
+.ruler-dock {
+  --ruler-width: min(360px, calc(100vw - 28px));
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 9999;
+  transform: translateY(-50%);
+  font-family:
+    Inter,
+    "Aptos",
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+.ruler-tab {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) translateX(0);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  min-height: 128px;
+  padding: 14px 9px;
+  border: 1px solid rgba(226, 207, 154, 0.35);
+  border-right: 0;
+  border-radius: 14px 0 0 14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+    rgba(8, 17, 31, 0.94);
+  color: #e2cf9a;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.34);
+}
+
+.ruler-panel {
+  width: var(--ruler-width);
+  max-height: min(760px, calc(100vh - 36px));
+  transform: translateX(100%);
+  transition: transform 220ms ease;
+  border: 1px solid rgba(200, 211, 226, 0.14);
+  border-right: 0;
+  border-radius: 22px 0 0 22px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(199, 169, 104, 0.08), transparent 18rem),
+    linear-gradient(145deg, rgba(8, 17, 31, 0.97), rgba(5, 9, 20, 0.95));
+  box-shadow: 0 30px 110px rgba(0,0,0,0.55);
+  overflow: hidden;
+}
+
+.ruler-dock.open .ruler-panel {
+  transform: translateX(0);
+}
+
+.ruler-dock.open .ruler-tab {
+  right: var(--ruler-width);
+}
+
+.ruler-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid rgba(200, 211, 226, 0.12);
+}
+
+.ruler-header strong {
+  display: block;
+  color: #f7fafc;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.ruler-header span {
+  display: block;
+  margin-top: 4px;
+  color: #7f8da3;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.ruler-close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(200, 211, 226, 0.14);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  color: #c8d3e2;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.ruler-controls {
+  display: grid;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(200, 211, 226, 0.12);
+}
+
+.ruler-control-row {
+  display: grid;
+  gap: 6px;
+}
+
+.ruler-control-row label {
+  color: #e2cf9a;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ruler-control-row input[type="range"] {
+  width: 100%;
+  accent-color: #c7a968;
+}
+
+.ruler-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ruler-actions button {
+  min-height: 36px;
+  padding: 9px 11px;
+  border: 1px solid rgba(199, 169, 104, 0.32);
+  border-radius: 999px;
+  background: rgba(199, 169, 104, 0.06);
+  color: #e2cf9a;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.ruler-readout {
+  color: #c8d3e2;
+  font-size: 0.8rem;
+}
+
+.ruler-body {
+  position: relative;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 14px;
+  padding: 18px;
+  overflow: auto;
+  max-height: min(470px, calc(100vh - 290px));
+}
+
+.ruler-vertical-wrap {
+  position: relative;
+  min-height: 420px;
+  border: 1px solid rgba(200, 211, 226, 0.16);
+  border-radius: 14px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+    rgba(0,0,0,0.16);
+  overflow: hidden;
+}
+
+.ruler-vertical {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+}
+
+.ruler-tick {
+  position: absolute;
+  left: 0;
+  height: 1px;
+  background: rgba(200, 211, 226, 0.62);
+}
+
+.ruler-tick.mm {
+  width: 22px;
+  opacity: 0.45;
+}
+
+.ruler-tick.half {
+  width: 34px;
+  opacity: 0.72;
+}
+
+.ruler-tick.cm {
+  width: 54px;
+  height: 2px;
+  background: rgba(226, 207, 154, 0.95);
+}
+
+.ruler-number {
+  position: absolute;
+  left: 59px;
+  transform: translateY(-50%);
+  color: #e2cf9a;
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.ruler-guide {
+  color: #9fb0c6;
+  font-size: 0.84rem;
+  line-height: 1.58;
+}
+
+.ruler-guide strong {
+  color: #f7fafc;
+}
+
+.ruler-card {
+  padding: 14px;
+  border: 1px solid rgba(200, 211, 226, 0.12);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.035);
+}
+
+.ruler-card + .ruler-card {
+  margin-top: 12px;
+}
+
+.ruler-card-title {
+  margin: 0 0 8px;
+  color: #e2cf9a;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ruler-credit-card {
+  width: var(--credit-card-width, 323.53px);
+  max-width: 100%;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed rgba(226, 207, 154, 0.58);
+  border-radius: 10px;
+  color: rgba(226, 207, 154, 0.86);
+  background: rgba(199, 169, 104, 0.035);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ruler-note {
+  margin: 8px 0 0;
+  color: #7f8da3;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 620px) {
+  .ruler-dock {
+    top: auto;
+    bottom: 14px;
+    transform: none;
+  }
+
+  .ruler-tab {
+    top: auto;
+    bottom: 0;
+    transform: translateX(0);
+  }
+
+  .ruler-dock.open .ruler-tab {
+    right: var(--ruler-width);
+  }
+
+  .ruler-body {
+    grid-template-columns: 82px 1fr;
+    gap: 10px;
+  }
+}

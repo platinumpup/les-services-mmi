@@ -1,14 +1,32 @@
-const CACHE_NAME = "les-services-mmi-v30";
+const CACHE_NAME = "les-services-mmi-v31";
 const ASSETS = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/app.js",
-  "/manifest.webmanifest",
-  "/assets/favicon.svg",
-  "/assets/icon-192.png",
-  "/assets/icon-512.png",
-  "/assets/maskable-icon-512.png"
+  "./",
+  "./index.html",
+  "./fr/",
+  "./fr/index.html",
+  "./styles.css",
+  "./app.js",
+  "./ruler.css",
+  "./ruler.js",
+  "./manifest.webmanifest",
+  "./robots.txt",
+  "./assets/favicon.ico",
+  "./assets/favicon.svg",
+  "./assets/favicon-16.png",
+  "./assets/favicon-32.png",
+  "./assets/apple-touch-icon.png",
+  "./assets/icon-192.png",
+  "./assets/icon-512.png",
+  "./assets/maskable-icon-512.png",
+  "./assets/mmi-icon-16.png",
+  "./assets/mmi-icon-32.png",
+  "./assets/mmi-icon-48.png",
+  "./assets/mmi-icon-64.png",
+  "./assets/mmi-icon-128.png",
+  "./assets/mmi-icon-180.png",
+  "./assets/mmi-icon-192.png",
+  "./assets/mmi-icon-256.png",
+  "./assets/mmi-icon-512.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -30,7 +48,14 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
-      return cached || fetch(event.request).catch(() => caches.match("/index.html"));
+      return cached || fetch(event.request).catch(() => {
+        if (event.request.mode === "navigate") {
+          return event.request.url.includes("/fr/")
+            ? caches.match("./fr/index.html")
+            : caches.match("./index.html");
+        }
+        return caches.match("./index.html");
+      });
     })
   );
 });
